@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: online-boutique-vs
+  namespace: default
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - online-boutique-gateway
+  http:
+  - route:
+    - destination:
+        host: frontend
+        port:
+          number: 80
